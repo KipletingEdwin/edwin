@@ -19,8 +19,9 @@ export const Navbar = () => {
         >
           EK<span className="text-primary">.</span>
         </a>
+
         {/* Desktop Nav */}
-        <div className="flex items-center gap-1">
+        <div className="hidden md:flex items-center gap-1">
           <div className="glass rounded-full px-2 py-1 flex items-center gap-1">
             {
               navLinks.map((link, index) => (
@@ -35,9 +36,11 @@ export const Navbar = () => {
         </div>
 
         {/* CTA Button */}
-        <div>
+        <div className="hidden md:block">
           <Button size="sm">Contact Me</Button>
         </div>
+
+        {/* Mobile Menu Button */}
 
       </nav>
     </header>
