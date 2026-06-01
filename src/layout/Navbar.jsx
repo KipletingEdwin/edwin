@@ -1,10 +1,22 @@
 
 import React from 'react'
 
-const Navbar = () => {
+
+export const Navbar = () => {
   return (
-    <div>Navbar</div>
+    <header>
+      <nav>
+        <a>
+          EK<span>.</span>
+        </a>
+        {/* Desktop Nav */}
+        <div>
+          <div>
+            
+          </div>
+        </div>
+
+      </nav>
+    </header>
   )
 }
-
-export default Navbar
