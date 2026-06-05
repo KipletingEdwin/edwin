@@ -1,4 +1,8 @@
 
+import { Button } from "@/components/Button"
+import { ArrowRight, Download, GitBranchPlus } from "lucide-react";
+import { AnimatedBorderButton } from "@/components/AnimatedBorderButton";
+
 export const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
@@ -62,6 +66,27 @@ export const Hero = () => {
             </div>
 
             {/* CTAs */}
+            <div className="flex flex-wrap gap-4 animate-fade-in animation-delay-300">
+              <Button size="lg">
+                Contact Me <ArrowRight className="w-5 h-5"/>
+                </Button>
+                <AnimatedBorderButton />
+            </div>
+
+            {/* Social Links */}
+            <div>
+              <span>Follow: </span> 
+              {[
+                { icon: GitBranchPlus, href: "#" },
+                { icon: GitBranchPlus, href: "#" },
+                { icon: GitBranchPlus, href: "#" },
+
+              ].map((social, idx) => (
+                <a key={idx} href={social.href}>{<social.icon/>}</a>
+              ))}
+            </div>
+
+
 
 
           </div>
@@ -69,7 +94,6 @@ export const Hero = () => {
 
         </div>
       </div>
-
 
     </section>
   );
