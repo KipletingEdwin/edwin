@@ -1,7 +1,8 @@
 
 import { Button } from "@/components/Button"
-import { ArrowRight, Download, GitBranchPlus } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { AnimatedBorderButton } from "@/components/AnimatedBorderButton";
+import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
 
 export const Hero = () => {
   return (
@@ -74,12 +75,12 @@ export const Hero = () => {
             </div>
 
             {/* Social Links */}
-            <div>
+            <div className="flex items-center gap-4 animate-fade-in">
               <span>Follow: </span> 
               {[
-                { icon: GitBranchPlus, href: "#" },
-                { icon: GitBranchPlus, href: "#" },
-                { icon: GitBranchPlus, href: "#" },
+                { icon: FaGithub, href: "#" },
+                { icon: FaLinkedin, href: "#" },
+                { icon: FaTwitter, href: "#" },
 
               ].map((social, idx) => (
                 <a key={idx} href={social.href}>{<social.icon/>}</a>
