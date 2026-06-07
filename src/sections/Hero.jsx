@@ -4,6 +4,20 @@ import { ArrowRight } from "lucide-react";
 import { AnimatedBorderButton } from "@/components/AnimatedBorderButton";
 import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
 
+const skills = [
+  "HTML",
+  "CSS",
+  "Tailwind CSS",
+  "JavaScript",
+  "TypeScript",
+  "React",
+  "Ionic Angular",
+  "Ruby",
+  "Ruby on Rails",
+  "Git",
+  "GitHub"
+];
+
 export const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
@@ -109,16 +123,41 @@ export const Hero = () => {
                 />
 
                 {/* Floating Badge */}
-                
-                {/* Stats Badge */}
-              </div>
+                <div className="absolute -bottom-4 -right-4 glass rounded-xl px-4 py-3 animate-float">
+                  <div className="flex items-center gap-3">
+                    <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"/>
+                    <span className="text-sm font-medium">Available for work</span>
+                  </div>
+                </div>
 
+                {/* Stats Badge */}
+                <div className="absolute -top-4 -left-4 glass rounded-xl px-4 py-3 animate-float animation-delay-500">
+                  <div className="text-2xl font-bold text-primary">5+</div>
+                  <div className="tetx-xs tetx-muted-foreground">Years Exp.</div>
+                </div>
+              </div>
             </div>
           </div>
-
         </div>
-      </div>
 
+        {/* Skills Section */}
+        <div className="mt-20 animate-fade-in animation-delay-600">
+          <p className="text-sm text-muted-foreground mb-6 text-center">
+            Technologies I work with
+            </p>
+          <div className="relative overflow-hidden">
+            <div className="flex animate-marquee">
+              {[...skills, ...skills].map((skill, idx) => (
+                <div key={idx}>
+                  <span>{skill}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+
+      </div>
     </section>
   );
 };
