@@ -76,21 +76,45 @@ export const Hero = () => {
 
             {/* Social Links */}
             <div className="flex items-center gap-4 animate-fade-in animation-delay-400 ">
-              <span className="text-sm text-muted-foreground">Follow: </span> 
+              <span className="text-sm text-muted-foreground">Follow Me: </span> 
               {[
                 { icon: FaGithub, href: "#" },
                 { icon: FaLinkedin, href: "#" },
                 { icon: FaTwitter, href: "#" },
               ].map((social, idx) => (
-                <a key={idx} href={social.href} className="p-2 rounded-full glass hover:bg-primary/10 " >{<social.icon/>}</a>
+                <a key={idx} 
+                href={social.href} 
+                className="p-2 rounded-full glass hover:bg-primary/10 hover:text-primary transition-all duration-300 ">
+                  {<social.icon className="w-5 h-5"/>}
+                  </a>
               ))}
             </div>
-
-
-
-
           </div>
+
           {/* Right Column - Profile Image */}
+          <div className="relative animate-fade-in animation-delay-300">
+            {/* Profile Image */}
+            <div className="relative max-w-md mx-auto"> 
+              <div 
+              className="absolute inset-0 
+              ounded-3xl bg-linear-to-br 
+              from-primary/30 via-transparent 
+              to-primary/10 blur-2xl animate-pulse"
+              />
+              <div className="relative glass rounded-3xl p-2 glow-border">
+                <img 
+                src="/profile-photo.jpg" 
+                alt="Edwin Kip" 
+                className="w-full aspect-4/5 object-cover rounded-2xl"
+                />
+
+                {/* Floating Badge */}
+                
+                {/* Stats Badge */}
+              </div>
+
+            </div>
+          </div>
 
         </div>
       </div>
