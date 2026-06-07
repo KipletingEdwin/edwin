@@ -148,8 +148,8 @@ export const Hero = () => {
           <div className="relative overflow-hidden">
             <div className="flex animate-marquee">
               {[...skills, ...skills].map((skill, idx) => (
-                <div key={idx}>
-                  <span>{skill}</span>
+                <div key={idx} className="shrink-0 px-8 py-4">
+                  <span className="text-xl font-semibold text-muted-foreground/50 hover:text-shadow-muted-foreground transition-colors">{skill}</span>
                 </div>
               ))}
             </div>
