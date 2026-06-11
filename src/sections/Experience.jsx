@@ -1,7 +1,80 @@
 
+const experiences = [
+  {
+    period: "2022 - Present",
+    role: "Senior Frontend Engineer",
+    company: "Tech Innovators Inc.",
+    description:
+      "Leading frontend architecture for a suite of fintech products. Implement ",
+      technologies: ["React", "TypeScript", "Next.js", "GraphQL"],
+      current: true,
+  },
+    {
+    period: "2020 - 2022",
+    role: "Frontend Engineer",
+    company: "Digital Solutions Co.",
+    description:
+      "Built and maintained multiple React applications for enterprise client ",
+      technologies: ["React", "Redux", "Jest", "Cypress"],
+      current: false,
+  },
+    {
+    period: "2019 - 2020",
+    role: "Junior Developer",
+    company: "StartUp Labs",
+    description:
+      "Contributed to the development of Saas platform from MVP to production ",
+      technologies: ["React", "Node.js", "MongoDB", "AWS"],
+      current: false,
+  },
+    {
+    period: "2018 - 2019",
+    role: "Freelance Developer",
+    company: "Self-Employed",
+    description:
+      "Delivered custom web solutions for small businesses and startups. Build ",
+      technologies: ["JavaScript", "PHP", "WordPress", "MySQL"],
+      current: false,
+  },
+
+
+
+]
 
 export const Experience = () => {
   return (
-    <div> </div>
+
+    <section id="experience" className="py-32 relative overflow-hidden"> 
+    <div className="absolute top-1/2 left-1/4 w-96 
+                   h-96 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 "   
+              />
+      <div className="container mx-auto px-6 relative z-10"> 
+        {/* Section Header */}
+
+        <div className="max-w-3xl mb-16">
+          <span className="text-seconadry-foreground text-sm 
+          font-medium tracking-wider uppercase animate-fade-in" 
+          >
+            Career Journey
+            </span>
+          <h2 className="text-4xl md:text-5xl font-bold 
+              mt-4 mb-6 animated-fade-in animation-delay-100 
+              text-secondary-foreground" >
+            Experience that <span className="font-serif italic font-normal text-white"> speak volumes.
+            </span>
+          </h2>
+
+          <p className="text-muted-foreground 
+          animate-fade-in animation-delay-200">
+            A timeline of my professional growth, from curious beginner 
+            to senior engineer leading temas and building products at scale.
+          </p>
+        </div>
+
+        {/* Timeline */}
+
+
+      </div>
+    </section>
   )
 }
