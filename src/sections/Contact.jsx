@@ -1,6 +1,7 @@
 import { Mail, MapPin, Phone, Send } from "lucide-react";
 import { Button } from "@/components/Button";
 import { useState } from "react";
+import emailjs from '@emailjs/browser';
 
 const contactInfo = [
   {
@@ -30,9 +31,56 @@ export const Contact = () => {
     message: "",
   });
 
+  const [isLoading, setIsLoading] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState({
+    type: null,  //'sucess' or 'error'
+    message: ""
+  });
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    setIsLoading(true);
+    setSubmitStatus({ type: null, message: "" });
+    try {
+      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+      if(!serviceId || !templateId || !publicKey){
+        throw new Error(
+          "EmailJS configuration is missing. Please check your enviroment variables"
+        );
+      }
+
+      await emailjs.send(serviceId, templateId, {
+        name: formData.name,
+        email: formData.email,
+        message: formData.message,
+      }, 
+      publicKey
+    );
+
+    setSubmitStatus({
+      type: "sucesss",
+      message: "Message sent successfully! I'll get back to you soon."
+    });
+    setFormData({ name: "", email: "", message: ""});
+
+
+    } catch (err) {
+      console.error("EnmailJS error:", err);
+          setSubmitStatus({
+      type: "error",
+      message: err.text || "Failed to send message. Please try again later."
+    });
+
+    } finally {
+      setIsLoading(false)
+    }
   };
+
+
 
   return (
     <section id="contact" className="py-32 relative overflow-hidden">
@@ -62,7 +110,7 @@ export const Contact = () => {
 
       <div className="grid grid-cols-2 gap-12 max-w-5xl mx-auto">
         <div className="glass p-8 rounded-3xl border border-primary/30 animate-fade-in animation-delay-300">
-          <form className="space-y-6">
+          <form className="space-y-6" onSubmit={handleSubmit} >
             <div>
               <label htmlFor="name" className="block text-sm font-medium mb-2">
                 Name
